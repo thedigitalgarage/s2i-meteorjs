@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -e
+
+# nss_wrapper:
+if [ -e "/opt/app-root/etc/generate_container_user" ]; then
+    source /opt/app-root/etc/generate_container_user
+fi
+
+# Runs the nodejs application server.
+run_meteor() {
+    export PORT=${PORT:-8080}
+    if [ -z "${ROOT_URL}" ]; then
+        echo "Missing ROOT_URL"
+        exit 1
+    fi
+    cd bundle
+    exec meteor node main.js
+}
+
+run_meteor
