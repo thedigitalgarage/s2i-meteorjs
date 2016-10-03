@@ -7,7 +7,7 @@ spec:
   tags:
   - annotations:
       description: Build and run MeteorJS applications
-      iconClass: icon-nodejs
+      iconClass: icon-meteorjs
       sampleRepo: https://github.com/getupcloud/meteorjs-ex.git
       supports: meteorjs:4.1,meteorjs:nodejs
       tags: builder,meteorjs
@@ -18,7 +18,7 @@ spec:
     name: "4.1"
   - annotations:
       description: Build and run MeteorJS applications
-      iconClass: icon-nodejs
+      iconClass: icon-meteorjs
       sampleRepo: https://github.com/getupcloud/meteorjs-ex.git
       supports: meteorjs:latest,meteorjs:4.1,meteorjs:nodejs
       tags: builder,meteorjs
