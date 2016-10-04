@@ -10,10 +10,12 @@ fi
 # Runs the nodejs application server.
 run_meteor() {
     export PORT=${PORT:-8080}
+
     if [ -z "${ROOT_URL}" ]; then
-        echo "Missing ROOT_URL"
-        exit 1
+        export ROOT_URL="http://${GETUP_APP_NAME}-${GETUP_PROJECT_NAME}.getup.io/"
+        echo "No user supplied ROOT_URL. Using default ($ROOT_URL)"
     fi
+
     cd bundle
     exec meteor node main.js
 }
