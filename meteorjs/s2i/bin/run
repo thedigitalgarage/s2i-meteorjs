@@ -12,7 +12,7 @@ run_meteor() {
     export PORT=${PORT:-8080}
 
     if [ -z "${ROOT_URL}" ]; then
-        export ROOT_URL="http://${GETUP_APP_NAME}-${GETUP_PROJECT_NAME}.getup.io/"
+        export ROOT_URL="http://${GETUP_APP_NAME}-${GETUP_PROJECT_NAME}.getup.io:${PORT}/"
         echo "No user supplied ROOT_URL. Using default ($ROOT_URL)"
     fi
 
