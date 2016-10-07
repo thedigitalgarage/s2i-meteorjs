@@ -3,7 +3,6 @@
 set -e
 
 APP_DIR="$HOME"
-export PATH="$PATH:$APP_DIR/.meteor"
 
 #curl -sL https://install.meteor.com | sh
 
@@ -33,7 +32,7 @@ if [ ! -z "$NPM_MIRROR" ]; then
     npm config set registry $NPM_MIRROR
 fi
 
-echo "---> Building your Meteor application"
+echo "---> Building your Meteor application in $APP_DIR"
 
 cd /tmp/src
 meteor npm install -d --production
