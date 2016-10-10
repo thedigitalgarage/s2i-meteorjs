@@ -13,7 +13,7 @@ EXPOSE 8080
 ENV METEORJS_VERSION=4.1 \
     NPM_CONFIG_LOGLEVEL=info \
     NPM_CONFIG_PREFIX=$HOME/.npm-global \
-    PATH=:$HOME/.meteor:$PATH \
+    PATH=$HOME/.meteor:$PATH \
     NODE_ENV=production \
     DEV_MODE=false \
     USER=default
@@ -24,6 +24,7 @@ LABEL io.k8s.description="Platform for building and running MeteorJS application
       io.openshift.tags="builder,nodejs,meteorjs,meteorjs$METEORJS_VERSION" \
       com.redhat.deployments-dir="/opt/app-root/src"
 
+# yum install -y centos-release-scl-rh && \
 RUN set -ex && \
   INSTALL_PKGS="bzip2 nss_wrapper" && \
   yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \

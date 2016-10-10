@@ -35,8 +35,9 @@ fi
 echo "---> Building your Meteor application in $APP_DIR"
 
 cd /tmp/src
+meteor npm install --save bcrypt
 meteor npm install -d --production
-meteor build --directory "$APP_DIR" --server=http://127.0.0.1:8080 --architecture os.linux.x86_64
+meteor build --directory "$APP_DIR" --server=http://127.0.0.1:8080 --architecture os.linux.x86_64 --server-only
 
 cd $HOME/bundle/programs/server
 meteor npm install -d --production
@@ -44,4 +45,4 @@ meteor npm install -d --production
 rm -rf /tmp/src/
 
 # Fix source directory permissions
-fix-permissions "$APP_DIR"
+fix-permissions "$APP_DIR/bundle"
