@@ -1,10 +1,6 @@
 #!/bin/bash
 
-set -e
-
 APP_DIR="$HOME"
-
-#curl -sL https://install.meteor.com | sh
 
 if [ ! -z $HTTP_PROXY ]; then
     echo "---> Setting npm http proxy to $HTTP_PROXY"
