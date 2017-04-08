@@ -1,9 +1,8 @@
 FROM openshift/base-centos7
 
-# This image provides a Node.JS environment you can use to run your Node.JS
-# applications.
+# This image provides a MeteorJS environment.
 
-MAINTAINER Mateus Caruccio <mateus.caruccio@getupcloud.com>
+MAINTAINER John McCawley <john.mccawley@thedigitalgarage.io>
 
 EXPOSE 8080
 
@@ -24,8 +23,12 @@ LABEL io.k8s.description="Platform for building and running MeteorJS application
       io.openshift.tags="builder,nodejs,meteorjs,meteorjs$METEORJS_VERSION" \
       com.redhat.deployments-dir="/opt/app-root/src"
 
-# yum install -y centos-release-scl-rh && \
+USER root
+
+RUN yum -y update
+
 RUN set -ex && \
+  yum install -y centos-release-scl-rh && \
   INSTALL_PKGS="bzip2 nss_wrapper" && \
   yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \
   rpm -V $INSTALL_PKGS && \
